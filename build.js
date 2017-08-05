@@ -2,7 +2,7 @@
     appDir: 'src',
     baseUrl: 'js',
     dir: 'bin',
-    fileExclusionRegExp: /^\..*|^jsx$|^exclude$/,
+    fileExclusionRegExp: /^\..*|^jsx$|.scss$|^exclude$/,
     optimizeCss: 'standard',
     removeCombined: true,
     paths: {

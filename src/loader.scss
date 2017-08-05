@@ -1,75 +1,116 @@
 
-$color-loader: $color-accent;
-$color-bg: $color-primary-dark;
 
-$speed: 0.6;
-$s1: $speed * 1.5s;
-$s2: $speed * 2s;
 
-.loader,
-.loader:before,
-.loader:after {
-  border-radius: 50%;
+/* Linear interpolate between $a and $b */
+
+@function lerp($a, $b, $p) {
+  @return ($b - $a) * $p + $a;
 }
-.loader:before,
-.loader:after {
-  position: absolute;
-  content: '';
+
+
+/* Linear interpolate assuming $a and $b are numeric two-item lists */
+
+@function lerp-point($a, $b, $p) {
+  @return ( lerp(nth($a, 1), nth($b, 1), $p), lerp(nth($a, 2), nth($b, 2), $p));
 }
-.loader:before {
-  width: 5.5em;
-  height: 11em;
-  background: $color-bg;
-  border-radius: 11em 0 0 11em;
-  top: -0.4em;
-  left: -0.4em;
-  -webkit-transform-origin: 5.5em 5.4em;
-  transform-origin: 5.5em 5.4em;
-  -webkit-animation: load2 $s2 infinite ease $s1;
-  animation: load2 $s2 infinite ease $s1;
-}
-.loader {
-  color: $color-loader;
-  font-size: 11px;
-  text-indent: -99999em;
-  margin: 55px auto;
-  position: relative;
-  width: 10em;
-  height: 10em;
-  box-shadow: inset 0 0 0 1em;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
-}
-.loader:after {
-  width: 5.5em;
-  height: 11em;
-  background: $color-bg;
-  border-radius: 0 11em 11em 0;
-  top: -0.4em;
-  left: 5.5em;
-  -webkit-transform-origin: 0px 5.5em;
-  transform-origin: 0px 5.5em;
-  -webkit-animation: load2 $s2 infinite ease;
-  animation: load2 $s2 infinite ease;
-}
-@-webkit-keyframes load2 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+
+
+/* Reduce points to one in a beziery way */
+
+@function bezier-reduce($points, $p) {
+  @while length($points) > 1 {
+    $tmp: ();
+    @for $i from 1 through length($points) {
+      @if $i < length($points) {
+        $a: nth($points, $i);
+        $b: nth($points, $i + 1);
+        $tmp: append($tmp, lerp-point($a, $b, $p));
+      }
+    }
+    $points: $tmp;
   }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+  @return nth($points, 1);
+}
+
+
+/* variables */
+
+$radius: 8.75;
+$pi: 3.14159265359;
+$circumference: 2 * $pi * $radius;
+@function circlePercentage($percent, $limit: 100) {
+  @return $circumference * ((3 * ($limit/100)) - $percent/100);
+}
+
+
+/* Pure CSS Material Spin Animation
+ * radius = 8.75
+ * pi = 3.14159
+ * circumference = 2 * pi * r (54.977825)
+ * dash-length = circumference * (100-x)/100 
+ *
+ * Every cycle rotates entire shape an additional -90deg (CCW)
+ * 
+ * Entire animation rotates 4x speed (CW)
+ * 
+ * 1. Start 0.072% from head
+ * 2. Increase to 75% from head
+ * 3. Reduce tail to 0.521% from tail 
+ * 4. Rotate -90 deg
+ *
+ * TODO: Confirm bezier easing
+ */
+
+
+/* Material Ease */
+
+$bezier-points: (0 0, 0.4 0, 0.2 1, 1 1);
+@mixin createMaterialSpinAnimation($detail:1, $colorList: null null null null) {
+  $totalFrames: $detail * 8;
+  /* #{$totalFrames} frames */
+  @for $iteration from 0 to 4 {
+    $iterationRotation: -90 * $iteration;
+    /* Ease-in 0-75%  */
+    @for $i from 0 to $detail +1 {
+      $rotation: ($i / $detail) * 180;
+      $keyframe: (($iteration * $detail * 2) + $i) * 100 / $totalFrames;
+      $percent: nth(bezier-reduce($bezier-points, ($i / $detail)), 1) * 75;
+      @if ($percent==0) {
+        $percent: 0.5;
+        $keyframe: $keyframe + 0.0001;
+      }
+      #{$keyframe}% {
+        /* circlePercentage(#{$percent}, 75); */
+        stroke-dashoffset: circlePercentage($percent, 75);
+        transform: rotate(#{$iterationRotation}deg) rotate(#{$rotation}deg);
+        stroke: nth($colorList,$iteration + 1);
+      }
+    }
+    /* Ease-out 75-150%  */
+    @for $i from 1 to $detail +1 {
+      $rotation: ($i / $detail) * 180 + 180;
+      $keyframe: (($iteration * $detail * 2) + ($detail + $i)) * 100 / $totalFrames;
+      $percent: nth(bezier-reduce($bezier-points, ($i / $detail)), 2) * 75 + 75;
+      @if ($percent==150) {
+        $percent: 149.5;
+      }
+      #{$keyframe}% {
+        /* circlePercentage(#{$percent}, 75); */
+        stroke-dashoffset: circlePercentage($percent, 75);
+        transform: rotate(#{$iterationRotation}deg) rotate(#{$rotation}deg);
+        stroke: nth($colorList,$iteration + 1);
+      }
+    }
   }
 }
-@keyframes load2 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+
+@keyframes material-spin {
+  @include createMaterialSpinAnimation(40);
+}
+
+#indeterminate {
+  stroke-dasharray: $circumference * 0.75;
+  stroke-dashoffset: circlePercentage(0.05, 75);
+  animation: material-spin 5332ms linear infinite;
+  transform-origin: center center;
 }

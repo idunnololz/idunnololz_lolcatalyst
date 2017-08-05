@@ -218,9 +218,9 @@ require(['jquery'], function ($) {
                 $img.css("max-width", "100%");
                 $img.css("max-height", "100%");
                 $imageContainer.append($img);
-
+ 
                 resize($img);
-            }, 5000);
+            }, 500);
         }).attr({
             src: $(this).attr('href')
         });

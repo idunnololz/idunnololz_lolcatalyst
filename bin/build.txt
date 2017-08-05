@@ -3,6 +3,10 @@ index.css
 ----------------
 index.css
 
+loader.css
+----------------
+loader.css
+
 js/index.js
 ----------------
 js/index.js
