@@ -1,6 +1,7 @@
 
 # We are using SASS so we don't see css
 *.css
+*.css.map
 
 # We are using JSX so JS isn't needed
 *.js
