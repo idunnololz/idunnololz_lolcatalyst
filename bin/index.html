@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+    <head>
+        <title>LoL Catalyst</title>
+        <meta name="description" content="LoL Catalyst: Builds for League of Legends" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="index.css"/>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+        <script>
+            // you can register settings like this before require.js is loaded
+            var require = {
+                baseUrl: 'js',
+                waitSeconds: 60,
+                paths: {
+                    libs: 'libs',
+                    app: 'app',
+                    jquery: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min'
+
+                //        jquery: '../a/offline/jquery',
+                //        React: '../a/offline/react-with-addons'
+                }        
+            };
+        </script>
+        <script data-main="index" src="/js/libs/require.min.js"></script>
+    </head>
+    
+    <body>
+        <div id="loading-view" class="loading-bg">
+            <div class="loader-container">
+                <div class="loader">Loading...</div>
+            </div>
+        </div>
+        <div id="main">
+            <div class="page1">
+                <div class="header-container">
+                    <div class="header">
+                        <a class="button" href="#about">
+                            ABOUT
+                        </a>
+                        <a class="button" href="#features">
+                            FEATURES
+                        </a>
+
+                        <a class="arrow-container" href="#get-app">
+                            <div class="big-arrow">
+                                <div class="logo-button">
+                                </div>
+                            </div>
+                        </a>
+
+                        <a class="button" href="#screenshots">
+                            SCREENSHOTS
+                        </a>
+                        <a class="button" href="#disclaimer">
+                            DISCLAIMER
+                        </a>
+                    </div>
+                </div>
+                <div class="page1-body">
+                    <div class="bg"></div>
+                    <div class="page1-container">
+                        <div class="content page1-content">
+                            <div class="text-container">
+                                <div class="spacer"> </div>
+                                <div class="text">
+                                    <h1>LoL Catalyst</h1>
+                                    <h2>Get builds for League of Legends</h2>
+                                    <div class="playstore-badge">
+                                        <div class="spacer"></div>
+                                        <a class="play-store" href='https://play.google.com/store/apps/details?id=com.ggstudios.lolcatalyst&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="screens-container">
+                                <div class="screens">
+                                    <div class="screen-class screen1"> </div>
+                                    <div class="screen-class screen2"> </div>
+                                    <div class="screen-class screen3"> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="about" class="page2">
+                <div class="content page2-content">
+                    <div class="screen-class screen3"> </div>
+                    <div class="text">
+                        <div>
+                            <h1>About</h1>
+                            <p>
+                                LoL Catalyst is designed to help players find the best builds as quickly as possible. Spend less time looking for builds and more time playing the game.
+                            </p>
+                            <p>
+                                LoL Catalyst uses a broad range of sources for better build diversity and compatibility. Don't want to over think your build and just concentrate on playing the game? Not to worry, just follow the most popular build. Don't trust common builds? No problem, you can look at how the pros are playing the champion. Want ideas for your third or fourth items? That's easy, simply glance at the list of successful builds and guides and pick an item from there. LoL Catalyst eliminates the need to alt tab every few minutes to check what your next item should be and keeps you focused on your game.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="features" class="page3">
+                <div class="content page3-content">
+                    <div>
+                        <h1>Features</h1>
+                        <ul>
+                            <li>Builds from a diverse range of sources</li>
+                            <li>Common counters</li>
+                            <li>Specific match up tips</li>
+                            <li>Guide digests from sites such as Mobafire and Lolking</li>
+                            <li>Game encyclopedia (look up items, summoners, runes, etc. right in the app!)</li>
+                            <li>Summoner lookup</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="page-get-the-app" id="get-app">
+                <div class="get-the-app-bg"></div>
+                <div class="content">
+                    <h2>Get LoL Catalyst today and start dominating your games.</h2>
+                    <div class="playstore-badge">
+                        <div class="spacer"></div>
+                        <a class="play-store" href='https://play.google.com/store/apps/details?id=com.ggstudios.lolcatalyst&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
+                    </div>
+                </div>
+            </div>
+            <div id="screenshots" class="page4">
+                <div class="content">
+                    <h1>Screenshots</h1>
+
+                    <div class="ss-container">                        
+                        <div><a href="/res/ss/ss1.png"><div class="ss1"> </div></a></div>
+                        <div><a href="/res/ss/ss2.png"><div class="ss2"> </div></a></div>
+                        <div><a href="/res/ss/ss3.png"><div class="ss3"> </div></a></div>
+                        <div><a href="/res/ss/ss4.png"><div class="ss4"> </div></a></div>
+                        <div><a href="/res/ss/ss5.png"><div class="ss5"> </div></a></div>
+                        <div><a href="/res/ss/ss6.png"><div class="ss6"> </div></a></div>
+                        <div><a href="/res/ss/ss7.png"><div class="ss7"> </div></a></div>
+                        <div><a href="/res/ss/ss8.png"><div class="ss8"> </div></a></div>
+                        <div><a href="/res/ss/ss9.png"><div class="ss9"> </div></a></div>
+                        <div><a href="/res/ss/ss10.png"><div class="ss10"> </div></a></div>
+                        <div><a href="/res/ss/ss11.png"><div class="ss11"> </div></a></div>
+                        <div><a href="/res/ss/ss12.png"><div class="ss12"> </div></a></div>
+                        <div><a href="/res/ss/ss13.png"><div class="ss13"> </div></a></div>
+                        <div><a href="/res/ss/ss14.png"><div class="ss14"> </div></a></div>
+                        <div><a href="/res/ss/ss15.png"><div class="ss15"> </div></a></div>
+                        <div><a href="/res/ss/ss16.png"><div class="ss16"> </div></a></div>
+                    </div>
+                </div>
+            </div>
+            <div id="disclaimer" class="page5">
+                <div class="content">
+                    <h1>Disclaimer</h1>
+                    <p>     
+                        LoL Catalyst isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
+                    </p>
+                </div>
+            </div>
+            <div class="footer">
+                <div>
+                    © 2016 LoL Catalyst.
+                </div>
+            </div>
+            <div class="image-view">
+                <div class="container">
+                    <div class="loading">
+                        <div class="loader-container">
+                            <div class="loader"></div>
+                        </div>
+                        <h2>Loading...</h2>
+                    </div>
+                    <div class="image-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // javascrip is enabled!
+            console.log("javascript is enabled!");
+            document.getElementById("loading-view").style.display = "flex";
+            document.getElementsByTagName("body")[0].style.overflow = "hidden";
+        </script>
+    </body>
+</html>
