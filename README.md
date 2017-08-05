@@ -1,2 +1,2 @@
 # idunnololz_lolcatalyst
-lolcatalyst.idunnololz.com
+[lolcatalyst.idunnololz.com](http://lolcatalyst.idunnololz.com)
