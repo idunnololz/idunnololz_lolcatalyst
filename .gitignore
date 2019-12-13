@@ -7,3 +7,5 @@
 .module-cache
 
 bin
+
+node_modules
