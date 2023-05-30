@@ -1,2 +1,2 @@
 cd bin
-python -m http.server 4000
+py -m http.server 4000

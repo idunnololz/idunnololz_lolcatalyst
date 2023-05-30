@@ -9,6 +9,20 @@
         
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script> -->
         <!-- <script data-main="donate" src="/js/libs/require.min.js"></script> -->
+        
+        <script type="text/javascript">
+            (function(t,l){
+                let w=window,d=document,s=d.createElement('script'),f=d.getElementsByTagName('script')[0];
+                w[t]=w[t]||function(){(w["_rgea"]=w["_rgea"]||[["uts",new Date()]]).push(Array.prototype.slice.call(arguments));w.RGEA&&w.RGEA.p();};
+                s.type='text/javascript'; s.async=true; s.defer=true; s.src=l; f.parentNode.insertBefore(s,f);
+            })("rgea", "https://static.developer.riotgames.com/js/rgea.min.js");
+
+            rgea("propertyId", "RGEA0002-483d2c25-3ec0-4950-bb08-63b4b0913d54");
+            rgea("uid", "puuid"); // assuming the user is verified; encrypted puuid
+            rgea("lolpid", "platformId"); // league platform id (na1, la2, euw1, kr, etc)
+            rgea("lolaid", "accountId"); // assuming the user is verified; encrypted account id
+            rgea("anonymous", false); // defaults to true
+        </script>
     </head>
     
     <body>
@@ -16,8 +30,6 @@
             <div class="content">
                 <h1>LoL Catalyst: Donation options</h1>
                 <p>Thank you for considering to donate!</p>
-                <h2>Use Flattr</h2>
-                <a href="https://flattr.com/submit/auto?fid=3p9ejw&url=http%3A%2F%2Flolcatalyst.idunnololz.com%2Fdonate.html" target="_blank"><img src="//button.flattr.com/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
                 <h2>Use Paypal</h2>
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                 <input type="hidden" name="cmd" value="_donations">

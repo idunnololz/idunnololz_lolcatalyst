@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+    <head>
+        <title>LoL Catalyst</title>
+        <meta name="description" content="LoL Catalyst: Builds for League of Legends" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="lolplanner.css"/>
+        
+        <script type="text/javascript">
+            (function(t,l){
+                let w=window,d=document,s=d.createElement('script'),f=d.getElementsByTagName('script')[0];
+                w[t]=w[t]||function(){(w["_rgea"]=w["_rgea"]||[["uts",new Date()]]).push(Array.prototype.slice.call(arguments));w.RGEA&&w.RGEA.p();};
+                s.type='text/javascript'; s.async=true; s.defer=true; s.src=l; f.parentNode.insertBefore(s,f);
+            })("rgea", "https://static.developer.riotgames.com/js/rgea.min.js");
+
+            rgea("propertyId", "RGEA0002-483d2c25-3ec0-4950-bb08-63b4b0913d54");
+            rgea("uid", "puuid"); // assuming the user is verified; encrypted puuid
+            rgea("lolpid", "platformId"); // league platform id (na1, la2, euw1, kr, etc)
+            rgea("lolaid", "accountId"); // assuming the user is verified; encrypted account id
+            rgea("anonymous", false); // defaults to true
+        </script>
+    </head>
+    
+    <body>
+        <div id="main">
+            <div class="page1">
+                <div class="dialog">
+                    <p id="title">
+                        You are trying to view a build. You need LolCatalyst to view this build.
+                    </p>
+                    <a id="download-app" class="button-colored" href='https://play.google.com/store/apps/details?id=com.ggstudios.lolcatalyst&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
+                        Download the app
+                    </a>
+                    <div class="space"></div>
+                    <a id="view-in-app" class="button" href="#">
+                        View build in app
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function deleteElem(elem) {
+                elem.parentNode.removeChild(elem);
+            }
+
+            function findGetParameter(parameterName) {
+                var result = null,
+                    tmp = [];
+                var items = location.search.substr(1).split("&");
+                for (var index = 0; index < items.length; index++) {
+                    tmp = items[index].split("=");
+                    if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+                }
+                return result;
+            }
+
+            // make sure that the build url is valid!
+
+            var buildUrl = findGetParameter("build");
+            if (buildUrl == null || buildUrl.length == 0) {
+                deleteElem(document.getElementById("download-app"));
+                deleteElem(document.getElementById("view-in-app"));
+                document.getElementById("title").innerHTML = 
+                    "No build data. Something might be wrong?"
+            } else {
+                var url = "lolcatalyst://build/" + findGetParameter("build");
+                document.getElementById("view-in-app").href = url;
+            }
+        </script>
+    </body>
+</html>

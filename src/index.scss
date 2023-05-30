@@ -17,6 +17,23 @@ h2 {
     font-size: 1.2em;
 }
 
+a {
+    color: $color-accent;
+    text-decoration: none;
+    font-weight: 700;
+
+    @include transition(all .3s ease);
+    
+    &:hover {
+        color: $color-accent-light;
+    }
+
+
+    &:visited {
+        color: $color-accent-dark;
+    }
+}
+
 .loading-bg {
     height: 100vh;
     width: 100%;
@@ -52,7 +69,7 @@ h2 {
 .header-container {
     z-index: 100;
     position: relative;
-    background-color: $color-primary-light5;
+    background-color: $color-primary;
 }
 
 .header {
@@ -85,11 +102,11 @@ h2 {
 
     .big-arrow {
         @include transition(all .3s ease);
-        background: $color-primary;
+        background: $color-accent-2;
         flex: 0 0 auto;
-        height: 14vh;
+        height: 10vh;
         position: relative;
-        width: 160px;
+        width: 15vh;
 
         display: flex;
         flex-direction: row;
@@ -99,7 +116,7 @@ h2 {
         @include box-shadow(0px, 0px, 2vw, rgba(0,0,0,0.5));
 
         &:hover {
-            background: $color-primary-light10;
+            background: $color-accent-2-light10;
             @include box-shadow(0px, 3px, 3px, $color-accent);
         }
 
@@ -110,12 +127,12 @@ h2 {
             position: absolute;
             width: 0;
             height: 0;
-            top: 14vh;
+            top: 10vh;
             left: 0;
             box-sizing: border-box;
 
-            border: 57px solid black;
-            border-color: transparent transparent $color-primary $color-primary;
+            border: 5.4vh solid $color-accent-2;
+            border-color: transparent transparent $color-accent-2 $color-accent-2;
 
             transform-origin: 0 0;
             transform: scaleY(0.5) rotate(-45deg);
@@ -123,16 +140,16 @@ h2 {
     }
 
     .big-arrow:hover:after{ 
-        border-color: transparent transparent $color-primary-light10 $color-primary-light10;
+        border-color: transparent transparent $color-accent-2-light10 $color-accent-2-light10;
         @include box-shadow(-3px, 3px, 3px, $color-accent);
     }
 
     .logo-button {
         flex: 0 0 auto;
         margin: auto;
-        width: 100px;
-        height: 100px;
-        background: url("/res/logo_xl.png") center no-repeat;
+        width: 80px;
+        height: 80px;
+        background: url("/res/logo.svg") center no-repeat;
         background-size: contain;
     }
 }
@@ -230,7 +247,7 @@ h2 {
 
 .screen-class {
     display: inline-block;
-    width: 400px;
+    width: 325px;
     height: 705px;
     position: relative;
 }
@@ -241,13 +258,13 @@ h2 {
     background-size: contain;
 }
 .screen2 {
-    margin-left: -300px;
+    margin-left: -240px;
     z-index: 1;
     background: url("/res/screen_2.png") center no-repeat;
     background-size: contain;
 }
 .screen3 {
-    margin-left: -300px;
+    margin-left: -240px;
     z-index: 0;
     background: url("/res/screen_3.png") center no-repeat;
     background-size: contain;
@@ -346,8 +363,8 @@ h2 {
         & > a > div {
             margin: auto;
             display: inline-block;
-            width: 250px;
-            height: 444px;
+            width: 230px;
+            height: 490px;
         }
     }
 
@@ -445,7 +462,7 @@ h2 {
 .footer {
     background: $color-primary-dark5;
     padding-top: 16px;
-    padding-bottom: 16px;
+    padding-bottom: 32px;
 
     display: flex;
 
@@ -547,7 +564,7 @@ p {
 
 @media (max-height: 900px) {
     .screen-class {
-        width: 284px;
+        width: 230px;
         height: 500px;   
     }
 
@@ -559,8 +576,8 @@ p {
 
     .header {
         .logo-button {
-            width: 12vh;
-            height: 12vh;
+            width: 9vh;
+            height: 9vh;
         }
     }
 }
@@ -579,8 +596,8 @@ p {
 
             &:after {
                 top: 18vw;
-                border: 6.5vw solid black;
-                border-color: transparent transparent $color-primary $color-primary;
+                border: 6.4vw solid $color-accent-2;
+                border-color: transparent transparent $color-accent-2 $color-accent-2;
             }
 
             .logo-button {

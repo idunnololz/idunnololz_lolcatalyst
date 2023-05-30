@@ -1,2 +1,2 @@
 cd src
-python -m http.server 5000
+py -m http.server 5000

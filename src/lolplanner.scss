@@ -1,0 +1,63 @@
+@charset "utf-8";
+@import 'normalize';
+
+.page1 {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #000;
+}
+
+.dialog {
+	padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	background-color: $color-primary-dark;
+	width: 300px;
+}
+
+.space {
+	width: 10px;
+	height: 10px;
+}
+
+a.button-colored {
+    @include transition(all .3s ease);
+    
+    padding: 20px;
+    font-weight: 300;
+    color: $color-text;
+    text-align: center;
+
+    text-decoration: none;
+
+    background-color: $color-primary;
+
+    &:hover {
+        background-color: $color-primary-light10;
+    }
+}
+
+a.button {
+    @include transition(all .3s ease);
+
+    padding: 20px;
+    font-weight: 300;
+    color: $color-text;
+    text-align: center;
+    text-decoration: none;
+
+	border-style: solid;
+    border-color: $color-primary;
+
+    background-color: rgba(0, 0, 0, 0);
+
+    &:hover {
+        background-color: $color-primary-light10;
+    	border-color: $color-primary-light10;
+    }
+}
